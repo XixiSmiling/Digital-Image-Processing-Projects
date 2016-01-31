@@ -1,0 +1,35 @@
+# EE569 Homework Assignment #2
+# Name:		Xiwei Liu
+# ID:		8724201402
+# Email:	xiweiliu@usc.edu
+#
+# Define compiler and linker
+#
+# Please put all images required in these problems in the same folder with the codes.
+# Please use  "make -f README" to compile and run the codes
+# please use "make clean -f README" to clean all output files.
+
+CC=g++
+LN=g++
+All : problem1 problem2 problem3
+problem1:
+	@echo "Problem 1 :"
+	$(CC) -c p1_sol.cpp colorspace.cpp iofile.cpp histogram.cpp EdgeDetectionFilters.cpp DenoisingFilters.cpp
+	$(LN) -o 1sol p1_sol.o colorspace.o iofile.o histogram.o EdgeDetectionFilters.o DenoisingFilters.o
+	./1sol
+	@echo "Problem 1 ends."
+problem2:
+	@echo "Problem 2 :"
+	$(CC) -c p2_sol.cpp iofile.cpp histogram.cpp FPProcessing.cpp
+	$(LN) -o 2sol p2_sol.o iofile.o histogram.o FPProcessing.o
+	./2sol
+	@echo "Problem 2 ends."
+problem3:
+	@echo "Problem 3 :"
+	$(CC) -c p3_sol.cpp iofile.cpp histogram.cpp HalfToning.cpp
+	$(LN) -o 3sol p3_sol.o iofile.o histogram.o HalfToning.o
+	./3sol
+	@echo "Problem 3 ends."	
+
+clean:
+	rm *.txt 1a*.raw 1b*.raw 2a*.raw 2b*.raw 2c*.raw 3a*.raw 3b*.raw 3c*.raw *.o 1sol 2sol 3sol
